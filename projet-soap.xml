@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="30a85689-d2bc-4e70-9c04-fbf5db9b86ac" activeEnvironment="Default" name="SoapUI-5.4" resourceRoot="" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="13ce5588-10f6-4493-833a-28dcb0a913fc" wsaVersion="NONE" name="SoapAuthServiceServiceSoapBinding" type="wsdl" bindingName="{http://endpoint.soap.webservice.logicaldoc.com/}SoapAuthServiceServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="file:/opt/soap/SoapUI-5.4.0/Auth%3Fwsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/opt/soap/SoapUI-5.4.0/Auth%3Fwsdl"><con:part><con:url>file:/opt/soap/SoapUI-5.4.0/Auth%3Fwsdl</con:url><con:content><![CDATA[<wsdl:definitions name="SoapAuthServiceService" targetNamespace="http://endpoint.soap.webservice.logicaldoc.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://endpoint.soap.webservice.logicaldoc.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://ws.logicaldoc.com">
+  <wsdl:import location="http://10.0.0.51:8080/services/Auth?wsdl=Auth.wsdl" namespace="http://ws.logicaldoc.com"></wsdl:import>
+  <wsdl:binding name="SoapAuthServiceServiceSoapBinding" type="ns1:Auth">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="valid">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="valid">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="validResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="logout">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="logoutResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="renew">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="renew">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="renewResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="login">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="loginResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SoapAuthServiceService">
+    <wsdl:port binding="tns:SoapAuthServiceServiceSoapBinding" name="SoapAuthServicePort">
+      <soap:address location="http://10.0.0.51:8080/services/Auth"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://10.0.0.51:8080/services/Auth?wsdl=Auth.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="Auth" targetNamespace="http://ws.logicaldoc.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://ws.logicaldoc.com">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://ws.logicaldoc.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.logicaldoc.com">
+      <xs:element name="login" type="tns:login"/>
+      <xs:element name="loginResponse" type="tns:loginResponse"/>
+      <xs:element name="logout" type="tns:logout"/>
+      <xs:element name="logoutResponse" type="tns:logoutResponse"/>
+      <xs:element name="renew" type="tns:renew"/>
+      <xs:element name="renewResponse" type="tns:renewResponse"/>
+      <xs:element name="valid" type="tns:valid"/>
+      <xs:element name="validResponse" type="tns:validResponse"/>
+      <xs:complexType name="valid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sid" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="validResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="logout">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sid" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="logoutResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="renew">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sid" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="renewResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="login">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="username" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="loginResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Exception" type="tns:Exception"/>
+      <xs:complexType name="Exception">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="valid">
+    <wsdl:part element="ns1:valid" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="renewResponse">
+    <wsdl:part element="ns1:renewResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="validResponse">
+    <wsdl:part element="ns1:validResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="logout">
+    <wsdl:part element="ns1:logout" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="logoutResponse">
+    <wsdl:part element="ns1:logoutResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="loginResponse">
+    <wsdl:part element="ns1:loginResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="renew">
+    <wsdl:part element="ns1:renew" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="login">
+    <wsdl:part element="ns1:login" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Exception">
+    <wsdl:part element="ns1:Exception" name="Exception"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Auth">
+    <wsdl:operation name="valid">
+      <wsdl:input message="ns1:valid" name="valid"></wsdl:input>
+      <wsdl:output message="ns1:validResponse" name="validResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <wsdl:input message="ns1:logout" name="logout"></wsdl:input>
+      <wsdl:output message="ns1:logoutResponse" name="logoutResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="renew">
+      <wsdl:input message="ns1:renew" name="renew"></wsdl:input>
+      <wsdl:output message="ns1:renewResponse" name="renewResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <wsdl:input message="ns1:login" name="login"></wsdl:input>
+      <wsdl:output message="ns1:loginResponse" name="loginResponse"></wsdl:output>
+      <wsdl:fault message="ns1:Exception" name="Exception"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://10.0.0.51:8080/services/Auth</con:endpoint></con:endpoints><con:operation id="4c633532-3b10-4d50-a339-9cbb6850ba47" isOneWay="false" action="" name="login" bindingOperationName="login" type="Request-Response" outputName="loginResponse" inputName="login" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="98a39bae-6b52-4fdb-9bca-0056c2c60207" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.0.0.51:8080/services/Auth</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.logicaldoc.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:login>
+         <!--Optional:-->
+         <username>?</username>
+         <!--Optional:-->
+         <password>?</password>
+      </ws:login>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://endpoint.soap.webservice.logicaldoc.com/Auth/login"/></con:call></con:operation><con:operation id="60e8eff8-3340-438c-8bc4-c5d028d65b07" isOneWay="false" action="" name="logout" bindingOperationName="logout" type="Request-Response" outputName="logoutResponse" inputName="logout" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="17be610b-4c36-4ec4-9d50-d2fc7ddb289a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.0.0.51:8080/services/Auth</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.logicaldoc.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:logout>
+         <!--Optional:-->
+         <sid>?</sid>
+      </ws:logout>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://endpoint.soap.webservice.logicaldoc.com/Auth/logout"/></con:call></con:operation><con:operation id="76226964-d8bc-48e2-a9f9-c397e9f12864" isOneWay="false" action="" name="renew" bindingOperationName="renew" type="Request-Response" outputName="renewResponse" inputName="renew" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c7d77abd-b5c5-477c-b095-4bd74815a608" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.0.0.51:8080/services/Auth</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.logicaldoc.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:renew>
+         <!--Optional:-->
+         <sid>?</sid>
+      </ws:renew>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://endpoint.soap.webservice.logicaldoc.com/Auth/renew"/></con:call></con:operation><con:operation id="48f3371b-276e-43fd-bae4-dbe1b1cac38e" isOneWay="false" action="" name="valid" bindingOperationName="valid" type="Request-Response" outputName="validResponse" inputName="valid" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="56e8e9be-4947-4357-8d0c-4af331202d93" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.0.0.51:8080/services/Auth</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.logicaldoc.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:valid>
+         <!--Optional:-->
+         <sid>?</sid>
+      </ws:valid>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://endpoint.soap.webservice.logicaldoc.com/Auth/valid"/></con:call></con:operation></con:interface><con:testSuite id="1f21a6b4-16af-4e29-954a-e242e9e5c5f8" name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="b4ce0296-6a47-4c09-b151-58e6b57268da" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="request" id="10d79224-8340-4a68-ab1c-bdb1b6036c25" name="login - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SoapAuthServiceServiceSoapBinding</con:interface><con:operation>login</con:operation><con:request name="login - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="79584cc6-d53c-4ec7-9769-26c55ec1c50d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.0.0.51:8080/services/Auth</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.logicaldoc.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:login>
+         <!--Optional:-->
+         <username>admin</username>
+         <!--Optional:-->
+         <password>admin</password>
+      </ws:login>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="8ae4b33a-3a14-465c-93b9-3aaaa36b476c" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://endpoint.soap.webservice.logicaldoc.com/Auth/login"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
